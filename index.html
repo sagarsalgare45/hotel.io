@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel Billing System - Home</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Basic reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body styling */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+        }
+
+        /* Navbar styling */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px;
+            background-color: #333;
+            color: #fff;
+            position: relative;
+        }
+
+        .navbar .logo img {
+            height: 50px;
+        }
+
+        .navbar .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .navbar .nav-links li {
+            margin-left: 20px;
+        }
+
+        .navbar .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        /* Menu icon styling */
+        .menu-icon {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .menu-icon div {
+            width: 25px;
+            height: 3px;
+            background-color: #fff;
+            margin: 4px 0;
+            transition: all 0.3s ease;
+        }
+
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            .navbar .nav-links {
+                display: none;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                background-color: #333;
+                width: 100%;
+                flex-direction: column;
+                text-align: center;
+                z-index: 1;
+            }
+
+            .navbar .nav-links.active {
+                display: flex;
+            }
+
+            .menu-icon {
+                display: flex;
+            }
+        }
+
+        /* Change the appearance of the menu icon when the menu is active */
+        .menu-icon.active div:nth-child(1) {
+            transform: rotate(-45deg) translate(-5px, 6px);
+        }
+
+        .menu-icon.active div:nth-child(2) {
+            opacity: 0;
+        }
+
+        .menu-icon.active div:nth-child(3) {
+            transform: rotate(45deg) translate(-5px, -6px);
+        }
+
+        /* Main section styling */
+        .welcome-section {
+            margin-top: 20px;
+            text-align: center;
+            padding: 10px;
+            background-color: #f4f4f4;
+        }
+
+        .welcome-section h1 {
+            margin-bottom: 10px;
+            font-size: 2.5em;
+        }
+
+        .welcome-section p {
+            font-size: 1.2em;
+            margin-bottom: 20px;
+        }
+
+        .welcome-section .start-button {
+            padding: 10px 20px;
+            background-color: #333;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        /* Footer styling */
+        .footer-content {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .footer-content p {
+            margin: 0;
+            font-size: 14px;
+        }
+
+        .footer-content .social-icons {
+            margin-top: 10px;
+        }
+
+        .footer-content .social-icons a {
+            margin: 0 10px;
+            display: inline-block;
+        }
+
+        .footer-content .social-icons img {
+            width: 24px;
+            height: 24px;
+            vertical-align: middle;
+        }
+
+        /* Responsive footer */
+        @media (max-width: 768px) {
+            .welcome-section {
+                padding: 20px;
+            }
+
+            .welcome-section h1 {
+                font-size: 2em;
+            }
+
+            .welcome-section p {
+                font-size: 1em;
+            }
+
+            .footer-content {
+                padding: 10px;
+            }
+
+            .footer-content p {
+                font-size: 12px;
+            }
+
+            .footer-content .social-icons img {
+                width: 20px;
+                height: 20px;
+            }
+
+            .navbar .nav-links.active {
+                top: 70px;
+                left: 0;
+                width: 100%;
+                flex-direction: column;
+                text-align: center;
+                z-index: 1;
+            }
+        }
+
+        /* Smooth scroll when menu is opened */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="menu-icon">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+            <div class="tag">
+                <h3 style="align-items: center;">मोरया वडापाव सेंटर</h3>
+            </div>
+            <div class="logo">
+                <h4>संकेत सलगरे </h4>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">होम </a></li>
+                <li><a href="billing.html">बिलिंग </a></li>
+                <li><a href="about.html">संपर्क </a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="welcome-section">
+            <h1>मोरया वडापाव सेंटर </h1>
+            <p>बिलिंग सुरू करण्यासाठी खालील बटन दाबा .</p>
+            <a href="billing.html" class="start-button">सुरू करा </a>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2024 SAGARSALGARE. All rights reserved.</p>
+            
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const menuIcon = document.querySelector('.menu-icon');
+            const navLinks = document.querySelector('.nav-links');
+
+            menuIcon.addEventListener('click', function () {
+                navLinks.classList.toggle('active');
+                menuIcon.classList.toggle('active');
+                window.scrollTo(0, document.body.scrollHeight); // Smooth scroll to the bottom
+            });
+        });
+    </script>
+</body>
+</html>
